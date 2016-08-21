@@ -107,6 +107,9 @@
     
     // 2.设置好友数（在线数\总数）
     self.countLabel.text = [NSString stringWithFormat:@"%d/%lu", group.online, (unsigned long)group.friends.count];
+    
+    // 3.覆盖箭头装套
+    [self didMoveToSuperview];
 }
 
 #pragma mark - 按钮响应方法
@@ -139,13 +142,6 @@
     }
 }
 
-- (void)willMoveToSuperview:(UIView *)newSuperview {
-    if (self.group.opened) {
-        self.nameButton.imageView.transform = CGAffineTransformMakeRotation(M_PI_2);
-    } else {
-        self.nameButton.imageView.transform = CGAffineTransformMakeRotation(0);
-    }
-}
 
 /*
 // Only override drawRect: if you perform custom drawing.
